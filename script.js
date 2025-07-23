@@ -146,7 +146,8 @@ if (bloqueado) {
     div.className = `ramo pendiente ${ramo.tipo}`;
    div.addEventListener("click", (e) => {
   e.stopPropagation();
-
+  }
+     
  if (!bloqueado) {
     div.addEventListener("click", () => {
       if (estadoRamos[ramo.nombre] === "aprobado") {
