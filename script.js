@@ -134,32 +134,33 @@ function crearRamo(ramo, semestreContainer) {
     }
   }
 
-  // Caso: Aprobado
   if (estado === "aprobado") {
     div.className = "ramo aprobado";
   }
 
-  // Caso: Bloqueado
   else if (bloqueado) {
     div.className = "ramo bloqueado";
   }
 
-  // Caso: Pendiente
   else {
     div.className = `ramo pendiente ${ramo.tipo}`;
-    div.addEventListener("click", () => {
-      const tipoOriginal = div.getAttribute("data-tipo");
+   div.addEventListener("click", (e) => {
+  e.stopPropagation();
 
-      if (div.classList.contains("aprobado")) {
-        div.classList.remove("aprobado");
-        div.classList.add("pendiente", tipoOriginal);
-        estadoRamos[ramo.nombre] = "pendiente";
-      } else {
-        div.classList.remove("pendiente", tipoOriginal);
-        div.classList.add("aprobado");
-        estadoRamos[ramo.nombre] = "aprobado";
-      }
 
+  if (div.classList.contains("bloqueado")) return;
+
+  const tipoOriginal = div.getAttribute("data-tipo");
+
+  if (div.classList.contains("aprobado")) {
+    estadoRamos[ramo.nombre] = "pendiente";
+  } else {
+    estadoRamos[ramo.nombre] = "aprobado";
+  }
+
+  guardarEstado();
+  render(); 
+});
       guardarEstado();
       render();
     });
