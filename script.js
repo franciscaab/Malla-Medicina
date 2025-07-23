@@ -169,6 +169,11 @@ function render() {
 
     ramos.forEach(ramo => crearRamo(ramo, semestreDiv));
     container.appendChild(semestreDiv);
+    
+function resetearMalla() {
+  localStorage.clear();
+  location.reload();
+}
   }
 }
 
