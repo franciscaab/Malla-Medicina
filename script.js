@@ -118,12 +118,12 @@ function crearRamo(ramo, semestreContainer) {
   div.textContent = ramo.nombre;
   div.setAttribute("data-tipo", ramo.tipo);
 
-  const estado = estadoRamos[ramo.nombre];
   let bloqueado = false;
 
   if (ramo.prerequisitos && !tienePrerequisitosCumplidos(ramo.prerequisitos)) {
     bloqueado = true;
   }
+
   if (
     ramo.nombre.includes("Internado") ||
     ramo.nombre.includes("Integrado Electivo") ||
@@ -134,7 +134,9 @@ function crearRamo(ramo, semestreContainer) {
     }
   }
 
-if (bloqueado) {
+  const estado = estadoRamos[ramo.nombre] || "pendiente";
+
+  if (bloqueado) {
     div.className = "ramo bloqueado";
   } else if (estado === "aprobado") {
     div.className = "ramo aprobado";
@@ -142,23 +144,16 @@ if (bloqueado) {
     div.className = `ramo pendiente ${ramo.tipo}`;
   }
 
-  else {
-    div.className = `ramo pendiente ${ramo.tipo}`;
-   div.addEventListener("click", (e) => {
-  e.stopPropagation();
-  }
-     
- if (!bloqueado) {
+  if (!bloqueado) {
     div.addEventListener("click", () => {
       if (estadoRamos[ramo.nombre] === "aprobado") {
         estadoRamos[ramo.nombre] = "pendiente";
       } else {
         estadoRamos[ramo.nombre] = "aprobado";
       }
-
-  guardarEstado();
-  render(); 
-});
+      guardarEstado();
+      render();
+    });
   }
 
   semestreContainer.appendChild(div);
