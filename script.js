@@ -4,7 +4,7 @@ const data = {
     { nombre: "Biología Molecular y Genética", tipo: "básica" },
     { nombre: "Anatomía Humana I", tipo: "básica" },
     { nombre: "Fundamentos de la Química", tipo: "básica" },
-    { nombre: "Psicología para la atención en Salud", tipo: "básica" },
+    { nombre: "Psicología para la atención en Salud", tipo: "básica" }
   ],
   "Semestre 2": [
     { nombre: "Histoembriología I", tipo: "básica" },
@@ -12,14 +12,14 @@ const data = {
     { nombre: "Fundamentos de Bioquímica", tipo: "básica", prerequisitos: ["Fundamentos de la Química"] },
     { nombre: "Psicología en el Curso de la Vida", tipo: "básica", prerequisitos: ["Psicología para la atención en Salud"] },
     { nombre: "Salud y Sociedad", tipo: "básica" },
-    { nombre: "Electivo I", tipo: "electiva" },
+    { nombre: "Electivo I", tipo: "electiva" }
   ],
    "Semestre 3": [
     { nombre: "Semiología I", tipo: "disciplinar", prerequisitos: ["Anatomía Humana II"] },
     { nombre: "Fisiología Médica I", tipo: "disciplinar", prerequisitos: ["Anatomía Humana II"] },
     { nombre: "Histoembriología II", tipo: "básica", prerequisitos: ["Histoembriología I", "Anatomía Humana II"] },
     { nombre: "Neurociencias", tipo: "básica", prerequisitos: ["Anatomía Humana II"] },
-    { nombre: "Electivo II", tipo: "electiva" },
+    { nombre: "Electivo II", tipo: "electiva" }
   ],
    "Semestre 4": [
     { nombre: "Semiología II", tipo: "disciplinar", prerequisitos: ["Semiología I", "Neurociencias"] },
@@ -27,7 +27,7 @@ const data = {
     { nombre: "Fisiología Médica II", tipo: "disciplinar", prerequisitos: ["Fisiología Médica I", "Histoembriología II"] },
     { nombre: "Inmunología e Inmunización", tipo: "disciplinar", prerequisitos: ["Fisiología Médica I", "Biología Molecular y Genética"] },
     { nombre: "Métodos de investigación en Salud y Bioestadística Aplicada", tipo: "básica" },
-    { nombre: "Electivo III", tipo: "electiva" },
+    { nombre: "Electivo III", tipo: "electiva" }
   ],
    "Semestre 5": [
     { nombre: "Atención Primaria y Alta Prevalencia", tipo: "disciplinar", prerequisitos: ["Agentes Infecciosos I", "Inmunología e Inmunización"] },
@@ -35,49 +35,49 @@ const data = {
     { nombre: "Integrado de Patología Morfofuncional I", tipo: "disciplinar", prerequisiitos: ["Fisiología Médica II", "Semiología II"] },
     { nombre: "Farmacología I", tipo: "disciplinar", prerequisitos: ["Fisiología Médica I", "Semiología II"] },
     { nombre: "Salud Basada en la Evidencia", tipo: "básica" },
-    { nombre: "Electivo IV", tipo: "electiva" },
+    { nombre: "Electivo IV", tipo: "electiva" }
   ],
    "Semestre 6": [
     { nombre: "Medicina Interna I", tipo: "disciplinar", prerequisitos: ["Atención Primaria y Alta Prevalencia", "Integrado de Patología Morfofuncional I"] },
     { nombre: "Integrado de Patología Morfofuncional II", tipo: "disciplinar", prerequisitos: ["Integrado de Patología Morfofuncional I", "Agentes Infecciosos II"] },
     { nombre: "Nutrición Clínica", tipo: "disciplinar", prerequisitos: ["Integrado de Patología Morfofuncional I", "Atención Primaria y Alta Prevalencia"] },
     { nombre: "Farmacología II", tipo: "disciplinar", prerequisitos: ["Farmacología I", "Integrado de Patología Morfofuncional I"] },
-    { nombre: "Fundamentos del Ecosistema de Salud Digital", tipo: "certificación" },
+    { nombre: "Fundamentos del Ecosistema de Salud Digital", tipo: "certificación" }
   ],
    "Semestre 7": [
     { nombre: "Medicina Interna II", tipo: "disciplinar", prerequisitos: ["Medicina Interna I", "Integrado de Patología Morfofuncional II"] },
     { nombre: "Neurología", tipo: "disciplinar", prerequisitos: ["Medicina Interna I"] },
     { nombre: "Especialidades Médicas I", tipo: "disciplinar", prerequisitos: ["Integrado de Patología Morfofuncional II"] },
     { nombre: "Salud Pública y Epidemiología", tipo: "básica" },
-    { nombre: "Bioética", tipo: "certificación" },
+    { nombre: "Bioética", tipo: "certificación" }
   ],
    "Semestre 8": [
     { nombre: "Cirugía", tipo: "disciplinar", prerequisitos: ["Medicina Interna II", "Farmacología II"] },
     { nombre: "Traumatología", tipo: "disciplinar", prerequisitos: ["Medicina Interna II"] },
     { nombre: "Especialidades Médicas II", tipo: "disciplinar", prerequisitos: ["Especialidades Médicas I"] },
     { nombre: "Métodos de Diagnóstico Clínico", tipo: "disciplinar", prerequisitos: ["Medicina Interna II", "Nutrición Clínica"] },
-    { nombre: "Gestión en Sistemas de Salud", tipo: "básica" },
+    { nombre: "Gestión en Sistemas de Salud", tipo: "básica" }
   ],
    "Semestre 9": [
     { nombre: "Medicina Aplicada I", tipo: "disciplinar", prerequisitos: ["Cirugía"] },
     { nombre: "Pediatría, Traumatología y Cirugía Infantil", tipo: "disciplinar", prerequisitos: ["Especialidades Médicas II"] },
     { nombre: "Medicina Legal", tipo: "disciplinar", prerequisitos: ["Traumatología"] },
     { nombre: "Psiquiatría Infanto-Juvenil y del Adulto I", tipo: "disciplinar", prerequisitos: ["Neurología"] },
-    { nombre: "Oncología y Cuidados Paliativos", tipo: "disciplinar", prerequisitos: ["Métodos de Diagnóstico Clínico", "Cirugía"] },
+    { nombre: "Oncología y Cuidados Paliativos", tipo: "disciplinar", prerequisitos: ["Métodos de Diagnóstico Clínico", "Cirugía"] }
   ],
    "Semestre 10": [
     { nombre: "Medicina Aplicada II", tipo: "disciplinar", prerequisitos: ["Medicina Aplicada I"] },
     { nombre: "Ginecología y Obstetricia", tipo: "disciplinar", prerequisitos: ["Cirugía", "Medicina Interna II"] },
     { nombre: "Especialidades Médicas III", tipo: "disciplinar", prerequisitos: ["Especialidades Médicas II", "Traumatología", "Medicina Interna II"] },
     { nombre: "Psiquiatría Infanto-Juvenil y del Adulto II", tipo: "disciplinar", prerequisitos: ["Psiquiatría Infanto-Juvenil y del Adulto I"] },
-    { nombre: "Inteligencia Artificial Aplicada a la Salud", tipo: "certificación" },
+    { nombre: "Inteligencia Artificial Aplicada a la Salud", tipo: "certificación" }
   ],
    "Semestre 11 y 12": [
     { nombre: "Internado de Medicina Interna", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
     { nombre: "Internado de Pediatría", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
     { nombre: "Internado de Psiquiatría", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
     { nombre: "Internado de Salud en Persona Mayor", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
-    { nombre: "Internado Electivo I", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
+    { nombre: "Internado Electivo I", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] }
  ],
    "Semestre 13 y 14": [
     { nombre: "Internado de Atención Primaria", tipo: "disciplinar", prerequisitos: ["Internado de Medicina Interna", "Internado de Pediatría", "Internado de Psiquiatría", "Internado de Salud en Persona Mayor"] },
@@ -86,7 +86,7 @@ const data = {
     { nombre: "Internado de Obstetricia y Ginecología", tipo: "disciplinar", prerequisitos: ["Internado de Medicina Interna", "Internado de Pediatría", "Internado de Psiquiatría", "Internado de Salud en Persona Mayor"] },
     { nombre: "Internado Electivo II", tipo: "disciplinar", prerequisitos: ["Internado de Medicina Interna", "Internado de Pediatría", "Internado de Psiquiatría", "Internado de Salud en Persona Mayor"] },
     { nombre: "Internado Electivo III", tipo: "disciplinar", prerequisitos: ["Internado de Medicina Interna", "Internado de Pediatría", "Internado de Psiquiatría", "Internado de Salud en Persona Mayor"] },
-    { nombre: "Integración para la Práctica Profesional", tipo: "disciplinar", prerequisitos: ["Internado de Medicina Interna", "Internado de Pediatría", "Internado de Psiquiatría", "Internado de Salud en Persona Mayor"] },
+    { nombre: "Integración para la Práctica Profesional", tipo: "disciplinar", prerequisitos: ["Internado de Medicina Interna", "Internado de Pediatría", "Internado de Psiquiatría", "Internado de Salud en Persona Mayor"] }
  ] 
 };
 
