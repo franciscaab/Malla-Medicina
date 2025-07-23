@@ -1,0 +1,56 @@
+body {
+  font-family: sans-serif;
+  background: #fff;
+  padding: 20px;
+}
+
+.semestres {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.semestre {
+  border: 2px solid #ccc;
+  padding: 10px;
+  min-width: 180px;
+  flex-shrink: 0;
+  background: #f9f9f9;
+}
+
+.semestre h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ramo {
+  padding: 6px;
+  margin: 4px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+
+.ramo.pendiente.básica { background-color: #FADADD; }
+.ramo.pendiente.disciplinar { background-color: #F4A6B8; }
+.ramo.pendiente.electiva { background-color: #F7C8E0; }
+.ramo.pendiente.certificación {
+  background-color: #FFB6C1;
+  border: 2px dashed #cf8cff;
+}
+
+.ramo.aprobado {
+  background-color: #cf8cff;
+  text-decoration: line-through;
+  color: white;
+}
+
+.ramo.bloqueado {
+  background-color: #D3D3D3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
