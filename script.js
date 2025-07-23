@@ -169,8 +169,11 @@ function crearRamo(ramo, semestreContainer) {
 }
 
 function render() {
-  const container = document.getElementById("malla");
-  container.innerHTML = "";
+  const filaSuperior = document.getElementById("fila-superior");
+  const filaInferior = document.getElementById("fila-inferior");
+
+  filaSuperior.innerHTML = "";
+  filaInferior.innerHTML = "";
 
   for (const [semestre, ramos] of Object.entries(data)) {
     const semestreDiv = document.createElement("div");
@@ -180,9 +183,14 @@ function render() {
     semestreDiv.appendChild(titulo);
 
     ramos.forEach(ramo => crearRamo(ramo, semestreDiv));
-    container.appendChild(semestreDiv);
-    
 
+    // Enviar a la fila superior (semestre 1 a 8)
+    const numeroSemestre = parseInt(semestre.match(/\d+/)?.[0] || "0");
+    if (numeroSemestre >= 1 && numeroSemestre <= 8) {
+      filaSuperior.appendChild(semestreDiv);
+    } else {
+      filaInferior.appendChild(semestreDiv);
+    }
   }
 }
 
