@@ -73,11 +73,11 @@ const data = {
     { nombre: "Inteligencia Artificial Aplicada a la Salud", tipo: "certificación" },
   ],
    "Semestre 11 y 12": [
-    { nombre: "Internado de Medicina Interna", tipo: "disciplinar", prerequisitos: ["Psiquiatría Infanto-Juvenil y del Adulto II", "Especialidades Médicas III", "Ginecología y Obstetricia", "Medicina Aplicada II"] },
-    { nombre: "Internado de Pediatría", tipo: "disciplinar", prerequisitos: ["Psiquiatría Infanto-Juvenil y del Adulto II", "Especialidades Médicas III", "Ginecología y Obstetricia", "Medicina Aplicada II"] },
-    { nombre: "Internado de Psiquiatría", tipo: "disciplinar", prerequisitos: ["Psiquiatría Infanto-Juvenil y del Adulto II", "Especialidades Médicas III", "Ginecología y Obstetricia", "Medicina Aplicada II"] },
-    { nombre: "Internado de Salud en Persona Mayor", tipo: "disciplinar", prerequisitos: ["Psiquiatría Infanto-Juvenil y del Adulto II", "Especialidades Médicas III", "Ginecología y Obstetricia", "Medicina Aplicada II"] },
-    { nombre: "Internado Electivo I", tipo: "disciplinar", prerequisitos: ["Psiquiatría Infanto-Juvenil y del Adulto II", "Especialidades Médicas III", "Ginecología y Obstetricia", "Medicina Aplicada II"] },
+    { nombre: "Internado de Medicina Interna", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
+    { nombre: "Internado de Pediatría", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
+    { nombre: "Internado de Psiquiatría", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
+    { nombre: "Internado de Salud en Persona Mayor", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
+    { nombre: "Internado Electivo I", tipo: "disciplinar", prerequisitos: ["TODO_CICLO_1"] },
  ],
    "Semestre 13 y 14": [
     { nombre: "Internado de Atención Primaria", tipo: "disciplinar", prerequisitos: ["Internado de Medicina Interna", "Internado de Pediatría", "Internado de Psiquiatría", "Internado de Salud en Persona Mayor"] },
@@ -97,7 +97,13 @@ function guardarEstado() {
 }
 
 function tienePrerequisitosCumplidos(prereqs) {
-  return prereqs.every(nombre => estadoRamos[nombre] === "aprobado");
+  return prereqs.every(nombre => {
+    if (nombre === "TODO_CICLO_1") {
+      return todosLosRamosDelCiclo1Aprobados();
+    }
+    return estadoRamos[nombre] === "aprobado";
+  });
+}
   
 function todosLosRamosDelCiclo1Aprobados() {
   const ramosCiclo1 = Object.entries(data)
