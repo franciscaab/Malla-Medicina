@@ -137,21 +137,21 @@ function crearRamo(ramo, semestreContainer) {
   } else if (bloqueado) {
     div.className = "ramo bloqueado";
   } else {
-  div.addEventListener("click", () => {
-    if (div.classList.contains("aprobado")) {
-      div.classList.remove("aprobado");
-      const tipoOriginal = div.getAttribute("data-tipo");
-      div.classList.add("pendiente", tipoOriginal);
-      estadoRamos[ramo.nombre] = "pendiente";
-    } else {
-      const tipoOriginal = div.getAttribute("data-tipo");
-      div.classList.remove("pendiente", tipoOriginal);
-      div.classList.add("aprobado");
-      estadoRamos[ramo.nombre] = "aprobado";
-    }
-    guardarEstado();
-    render();
-  });
+    div.className = `ramo pendiente ${ramo.tipo}`;
+div.addEventListener("click", () => {
+  const tipoOriginal = div.getAttribute("data-tipo");
+  if (div.classList.contains("aprobado")) {
+    div.classList.remove("aprobado");
+    div.classList.add("pendiente", tipoOriginal);
+    estadoRamos[ramo.nombre] = "pendiente";
+  } else {
+    div.classList.remove("pendiente", tipoOriginal);
+    div.classList.add("aprobado");
+    estadoRamos[ramo.nombre] = "aprobado";
+  }
+  guardarEstado();
+  render();
+});
   }
 
   semestreContainer.appendChild(div);
