@@ -32,7 +32,7 @@ const data = {
    "Semestre 5": [
     { nombre: "Atención Primaria y Alta Prevalencia", tipo: "disciplinar", prerequisitos: ["Agentes Infecciosos I", "Inmunología e Inmunización"] },
     { nombre: "Agentes Infecciosos II", tipo: "disciplinar", prerequisitos: ["Semiología I", "Fisiología Médica I"] },
-    { nombre: "Integrado de Patología Morfofuncional I", tipo: "disciplinar", prerequisiitos: ["Fisiología Médica II", "Semiología II"] },
+    { nombre: "Integrado de Patología Morfofuncional I", tipo: "disciplinar", prerequisitos: ["Fisiología Médica II", "Semiología II"] },
     { nombre: "Farmacología I", tipo: "disciplinar", prerequisitos: ["Fisiología Médica I", "Semiología II"] },
     { nombre: "Salud Basada en la Evidencia", tipo: "básica" },
     { nombre: "Electivo IV", tipo: "electiva" }
@@ -116,6 +116,7 @@ function todosLosRamosDelCiclo1Aprobados() {
 function crearRamo(ramo, semestreContainer) {
   const div = document.createElement("div");
   div.textContent = ramo.nombre;
+  div.setAttribute("data-tipo", ramo.tipo);
 
   const estado = estadoRamos[ramo.nombre];
   let bloqueado = false;
@@ -170,11 +171,12 @@ function render() {
     ramos.forEach(ramo => crearRamo(ramo, semestreDiv));
     container.appendChild(semestreDiv);
     
-function resetearMalla() {
-  localStorage.clear();
-  location.reload();
-}
+
   }
 }
 
 render();
+function resetearMalla() {
+  localStorage.clear();
+  location.reload();
+}
