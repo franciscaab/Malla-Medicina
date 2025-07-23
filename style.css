@@ -4,6 +4,11 @@ body {
   padding: 20px;
 }
 
+.malla-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 .semestres {
   display: flex;
   flex-wrap: nowrap;
