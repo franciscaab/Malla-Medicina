@@ -112,7 +112,6 @@ function todosLosRamosDelCiclo1Aprobados() {
 
   return ramosCiclo1.every(ramo => estadoRamos[ramo.nombre] === "aprobado");
 }
-}
 
 function crearRamo(ramo, semestreContainer) {
   const div = document.createElement("div");
