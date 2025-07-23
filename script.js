@@ -175,9 +175,8 @@ function render() {
 
     ramos.forEach(ramo => crearRamo(ramo, semestreDiv));
 
-    // Enviar a la fila superior (semestre 1 a 8)
     const numeroSemestre = parseInt(semestre.match(/\d+/)?.[0] || "0");
-    if (numeroSemestre >= 1 && numeroSemestre <= 8) {
+    if (numeroSemestre >= 1 && numeroSemestre <= 7) {
       filaSuperior.appendChild(semestreDiv);
     } else {
       filaInferior.appendChild(semestreDiv);
