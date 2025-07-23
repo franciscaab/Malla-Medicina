@@ -110,37 +110,35 @@ function todosLosRamosDelCiclo1Aprobados() {
 
 function crearRamo(ramo, semestreContainer) {
   const div = document.createElement("div");
-  div.className = `ramo pendiente ${ramo.tipo}`;
   div.textContent = ramo.nombre;
 
   const estado = estadoRamos[ramo.nombre];
-  if (estado === "aprobado") {
-    div.classList.remove("pendiente");
-    div.classList.add("aprobado");
-  }
-
   let bloqueado = false;
 
   if (ramo.prerequisitos && !tienePrerequisitosCumplidos(ramo.prerequisitos)) {
     bloqueado = true;
   }
 
+  // Lógica especial para internados
   if (ramo.nombre.includes("Internado") || ramo.nombre.includes("Integrado Electivo") || ramo.nombre.includes("Integración para la Práctica")) {
     if (!todosLosRamosDelCiclo1Aprobados()) {
       bloqueado = true;
     }
   }
 
-  if (bloqueado) {
-    div.classList.add("bloqueado");
+  if (estado === "aprobado") {
+    div.className = "ramo aprobado";
+  } else if (bloqueado) {
+    div.className = "ramo bloqueado";
   } else {
+    div.className = `ramo pendiente ${ramo.tipo}`;
     div.addEventListener("click", () => {
       if (div.classList.contains("aprobado")) {
         div.classList.remove("aprobado");
         div.classList.add("pendiente", ramo.tipo);
         estadoRamos[ramo.nombre] = "pendiente";
       } else {
-        div.classList.remove("pendiente", "bloqueado", ramo.tipo);
+        div.classList.remove("pendiente", ramo.tipo);
         div.classList.add("aprobado");
         estadoRamos[ramo.nombre] = "aprobado";
       }
