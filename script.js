@@ -161,9 +161,6 @@ function crearRamo(ramo, semestreContainer) {
   guardarEstado();
   render(); 
 });
-      guardarEstado();
-      render();
-    });
   }
 
   semestreContainer.appendChild(div);
