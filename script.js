@@ -134,12 +134,12 @@ function crearRamo(ramo, semestreContainer) {
     }
   }
 
-  if (estado === "aprobado") {
-    div.className = "ramo aprobado";
-  }
-
-  else if (bloqueado) {
+if (bloqueado) {
     div.className = "ramo bloqueado";
+  } else if (estado === "aprobado") {
+    div.className = "ramo aprobado";
+  } else {
+    div.className = `ramo pendiente ${ramo.tipo}`;
   }
 
   else {
@@ -147,16 +147,13 @@ function crearRamo(ramo, semestreContainer) {
    div.addEventListener("click", (e) => {
   e.stopPropagation();
 
-
-  if (div.classList.contains("bloqueado")) return;
-
-  const tipoOriginal = div.getAttribute("data-tipo");
-
-  if (div.classList.contains("aprobado")) {
-    estadoRamos[ramo.nombre] = "pendiente";
-  } else {
-    estadoRamos[ramo.nombre] = "aprobado";
-  }
+ if (!bloqueado) {
+    div.addEventListener("click", () => {
+      if (estadoRamos[ramo.nombre] === "aprobado") {
+        estadoRamos[ramo.nombre] = "pendiente";
+      } else {
+        estadoRamos[ramo.nombre] = "aprobado";
+      }
 
   guardarEstado();
   render(); 
